@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsak6gcs2hoqf"]
+
+[ext_resource type="Texture2D" uid="uid://dr128eo4dij2y" path="res://Assets/Spritesheets/tanks.png" id="1_12kdf"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_oh05b"]
+[ext_resource type="Texture2D" uid="uid://dle7pgvc65dnq" path="res://Assets/Spritesheets/turrets.png" id="2_en5j0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4ijg"]
+atlas = ExtResource("1_12kdf")
+region = Rect2(0, 0, 38, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnqt5"]
+atlas = ExtResource("2_en5j0")
+region = Rect2(0, 0, 12, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32tfm"]
+size = Vector2(36.5, 38)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+motion_mode = 1
+script = ExtResource("1_oh05b")
+TurretRotateSpeed = 3
+
+[node name="Tank Body" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = SubResource("AtlasTexture_p4ijg")
+
+[node name="Tank Turret" type="Sprite2D" parent="Tank Body"]
+position = Vector2(0, 3)
+texture = SubResource("AtlasTexture_bnqt5")
+centered = false
+offset = Vector2(-6, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, 0)
+shape = SubResource("RectangleShape2D_32tfm")

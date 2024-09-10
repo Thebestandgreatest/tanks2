@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbec0xggwbpo8"]
+
+[ext_resource type="Texture2D" uid="uid://dhylx88uftgev" path="res://Assets/Spritesheets/terrainTiles_default.png" id="1_t7onx"]
+[ext_resource type="PackedScene" uid="uid://dsak6gcs2hoqf" path="res://Scenes/player.tscn" id="2_ggkt0"]
+
+[node name="Testing" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(321, 129)
+texture = ExtResource("1_t7onx")
+
+[node name="Player" parent="." instance=ExtResource("2_ggkt0")]
