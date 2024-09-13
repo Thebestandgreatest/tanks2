@@ -13,13 +13,15 @@ atlas = ExtResource("2_en5j0")
 region = Rect2(0, 0, 12, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_32tfm"]
-size = Vector2(36.5, 38)
+size = Vector2(36, 38)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 motion_mode = 1
 script = ExtResource("1_oh05b")
-TurretRotateSpeed = 3
+UseController = true
+CursorXOffset = 25
+CursorYOffset = 20
 
 [node name="Tank Body" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -31,8 +33,18 @@ texture = SubResource("AtlasTexture_bnqt5")
 centered = false
 offset = Vector2(-6, 0)
 
+[node name="ColorRect" type="ColorRect" parent="Tank Body/Tank Turret"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = -12.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(35.796, 0, 0, 1)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.25, 0)
 shape = SubResource("RectangleShape2D_32tfm")
